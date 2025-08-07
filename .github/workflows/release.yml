@@ -1,5 +1,15 @@
 name: PyPi release
 
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
   # Use Any Python version, cibuildwheel downloads multiple python version to create each build environment.
   # We can only use x86-64 macOS, so we can test on x86-64. But murmur3 is now universal2 binary. So It'll be works for arm64 too.
